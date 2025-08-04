@@ -1,0 +1,84 @@
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+    :root {
+      --color-dark: #000000;
+      --color-primary: #507DBC;
+      --color-accent: #A1C6EA;
+      --color-card: #BBD1EA;
+      --color-light: #DAE3E5;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .uk-button-primary {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+    }
+
+    .uk-button-primary:hover {
+      background-color: var(--color-dark);
+      border-color: var(--color-dark);
+    }
+
+    .uk-background-muted {
+      background-color: var(--color-light) !important;
+    }
+
+    .uk-navbar-container {
+      background-color: var(--color-primary) !important;
+      color: white;
+    }
+
+    .uk-navbar-nav > li > a {
+      color: white;
+    }
+
+    .uk-navbar-nav > li > a:hover {
+      color: var(--color-accent);
+    }
+
+    .section-card {
+      background-color: var(--color-card);
+      border-radius: 8px;
+      padding: 20px;
+      color: #000;
+      min-height: 120px;
+    }
+
+    .bottom-nav {
+      background-color: var(--color-dark);
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .fa-icon {
+      font-size: 1.3rem;
+      color: white;
+      margin: 0 10px;
+    }
+
+    .fa-icon:hover {
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 640px) {
+      .section-card {
+        padding: 15px;
+      }
+      .fa-icon {
+        font-size: 1.1rem;
+        margin: 0 6px;
+      }
+    }
