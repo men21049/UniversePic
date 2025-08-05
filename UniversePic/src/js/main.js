@@ -1,7 +1,7 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import "uikit/dist/css/uikit.min.css";
 import UIkit from "uikit";
-import Icons from "uikit/dist/js/uikit-icons";
+import Icons from "uikit/dist/js/uikit-icons.min.js";
 
 UIkit.use(Icons);
 
