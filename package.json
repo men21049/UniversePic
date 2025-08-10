@@ -17,6 +17,7 @@
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "dotenv": "^17.2.1",
     "format": "^0.2.2",
     "lint": "^0.8.19",
     "uikit": "^3.23.11"

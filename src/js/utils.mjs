@@ -1,3 +1,5 @@
+import { pictureOfTheDay } from "../data/nasaapi.mjs";
+
 export function renderListWithTemplate(
   templateFn,
   parentElement,
@@ -34,4 +36,53 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+}
+
+export async function getMainPic() {
+  try {
+    const data = await pictureOfTheDay();
+    if (!data) {
+      throw new Error("Failed to fetch the picture of the day");
+    }
+    return data.url;
+  } catch (err) {
+    console.error("Error fetching the main picture:", err);
+  }
+}
+
+export async function getPicTitle() {
+  try {
+    const data = await pictureOfTheDay();
+    if (!data) {
+      throw new Error("Failed to fetch the picture title");
+    }
+    return data.title;
+  } catch (err) {
+    console.error("Error fetching the picture title:", err);
+  }
+}
+
+export async function displayMainPic(targetElement) {
+  const mainPicUrl = await getMainPic();
+
+  const mainPicElement = document.getElementById(targetElement);
+  const mainPicTitle = document.querySelector(".hero-caption");
+
+  if (!mainPicElement) {
+    console.error(`Element with ID "${targetElement}" not found in DOM.`);
+    return;
+  }
+
+  if (mainPicUrl) {
+    mainPicElement.src = mainPicUrl;
+    mainPicElement.alt = "NASA's Picture of the Day:" + (await getPicTitle());
+    mainPicTitle.textContent =
+      (await getPicTitle()) + " - Click to view in full size";
+  } else if (mainPicElement.src) {
+    mainPicElement.style.display = "none"; // Hide the image if no URL is available
+    mainPicTitle.innerText = "No picture available for today.";
+    mainPicTitle.style.display = "block"; // Ensure the title is displayed
+  } else {
+    console.error("No picture available to display.");
+  }
 }
