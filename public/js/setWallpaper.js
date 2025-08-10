@@ -1,30 +1,35 @@
-const mainPic = document.getElementById("dayImage");
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("fullImage");
-const captionText = document.getElementById("caption");
-const closeBtn = document.querySelector(".close");
-const setBgBtn = document.getElementById("setBackground");
+document.addEventListener("DOMContentLoaded", () => {
+  const mainPic = document.getElementById("dayImage");
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("fullImage");
+  const captionText = document.getElementById("caption");
+  const closeBtn = document.querySelector(".close");
+  const setBgBtn = document.getElementById("setBackground");
 
-// Open modal with zoom animation
-mainPic.onclick = function() {
-  modal.style.display = "flex";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-};
-
-// Close modal
-closeBtn.onclick = function() {
+  // Ensure modal is hidden on load
   modal.style.display = "none";
-};
 
-// Click outside image closes modal
-modal.onclick = function(e) {
-  if (e.target === modal) {
+  // Open modal on image click
+  mainPic.addEventListener("click", () => {
+    modal.style = "display:flex; flex-direction: column;";
+    modalImg.src = mainPic.src;
+    captionText.innerHTML = mainPic.alt;
+  });
+
+  // Close modal with X
+  closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
-  }
-};
+  });
 
-// Open image in new tab for "Set as background"
-setBgBtn.onclick = function() {
-  window.open(modalImg.src, "_blank");
-};
+  // Close modal when clicking outside image
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Open in new tab for "Set as Background"
+  setBgBtn.addEventListener("click", () => {
+    window.open(modalImg.src, "_blank");
+  });
+});

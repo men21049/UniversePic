@@ -1,7 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./localstorage.mjs";
 
 export async function pictureOfTheDay() {
-  if (!getLocalStorage("pictureOfTheDay")) {
+  if (getLocalStorage("pictureOfTheDay".length === 0)) {
     try {
       // Call the proxy endpoint
       const response = await fetch("/api/planetary/apod");
@@ -14,9 +14,7 @@ export async function pictureOfTheDay() {
       }
 
       const data = await response.json();
-      if (getLocalStorage()) {
-        setLocalStorage("pictureOfTheDay", data);
-      }
+      setLocalStorage("pictureOfTheDay", data);
       return data; // This returns the full data object from NASA
     } catch (err) {
       console.error("Error fetching picture:", err);

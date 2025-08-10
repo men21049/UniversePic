@@ -127,8 +127,7 @@ main {
 
 /* Modal background */
 .modal {
-  display: felx;
-  flex-direction: column;
+  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
