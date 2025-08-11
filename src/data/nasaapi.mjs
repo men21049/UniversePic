@@ -6,7 +6,7 @@ export async function pictureOfTheDay() {
     try {
       // Call the proxy endpoint
       const response = await fetch(
-        "https://api.nasa.gov/api/planetary/apod?api_key=" + API_KEY
+        "https://api.nasa.gov/planetary/apod?api_key=" + API_KEY
       );
 
       if (!response) {
