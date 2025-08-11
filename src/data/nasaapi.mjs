@@ -1,11 +1,9 @@
 import { getLocalStorage, setLocalStorage } from "./localstorage.mjs";
-import { config } from "dotenv";
 
-config();
-const API_KEY = process.env.NASA_API_KY;
+const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 
 export async function pictureOfTheDay() {
-  if (getLocalStorage("pictureOfTheDay".length === 0)) {
+  if (getLocalStorage("pictureOfTheDay").length === 0) {
     try {
       // Call the proxy endpoint
       const response = await fetch(
