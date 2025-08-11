@@ -1,4 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./localstorage.mjs";
+import { config } from "dotenv";
+
+config();
 const API_KEY = process.env.NASA_API_KY;
 
 export async function pictureOfTheDay() {
