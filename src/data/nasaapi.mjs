@@ -1,10 +1,13 @@
 import { getLocalStorage, setLocalStorage } from "./localstorage.mjs";
+const API_KEY = process.env.NASA_API_KY;
 
 export async function pictureOfTheDay() {
   if (getLocalStorage("pictureOfTheDay".length === 0)) {
     try {
       // Call the proxy endpoint
-      const response = await fetch("/api/planetary/apod");
+      const response = await fetch(
+        "https://api.nasa.gov/api/planetary/apod?api_key=" + API_KEY
+      );
 
       if (!response) {
         const errorData = await response.json();
