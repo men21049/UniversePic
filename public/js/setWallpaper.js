@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ensure modal is hidden on load
   modal.style.display = "none";
-
   // Open modal on image click
   mainPic.addEventListener("click", () => {
     modal.style = "display:flex; flex-direction: column;";
