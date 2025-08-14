@@ -11,6 +11,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
+        rover: resolve(__dirname, "src/rover.html"),
+        searchnasa: resolve(__dirname, "src/searchnasa.html"),
       },
     },
   },
