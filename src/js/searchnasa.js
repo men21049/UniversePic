@@ -1,13 +1,14 @@
-import { displayRoverPhotos, loadHeaderFooter } from "./utils.mjs";
-import { displayMainPic, renderArticles, filteredArticles } from "./utils.mjs";
+import {
+  loadHeaderFooter,
+  displayNasaImages,
+  fetchNasaImages,
+} from "./utils.mjs";
 import "uikit/dist/css/uikit.min.css";
 import UIkit from "uikit";
 import Icons from "uikit/dist/js/uikit-icons.min.js";
 UIkit.use(Icons);
 
 loadHeaderFooter();
-displayMainPic("dayImage");
-renderArticles();
 
 document
   .getElementById("searchGlass")
@@ -16,7 +17,7 @@ document
     const searchInput = document.getElementById("search");
     if (searchInput) {
       const query = searchInput.value.trim();
-      const results = await filteredArticles(query);
-      renderArticles(results);
+      const result = await fetchNasaImages(query);
+      displayNasaImages(result);
     }
   });

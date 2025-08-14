@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Universe Pics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/css/uikit.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit-icons.min.js"> </script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-center" id="main-header">
+    </div>
+  </nav>
+
+  </div>
+   <main class="uk-container uk-margin-top">
+   <h1> Search Nasa's Image and Video Library</h1>
+    <div class="uk-placeholder">
+        
+        <div uk-search uk-search-default>
+            <input id="search" class="uk-input uk-form-width-small" type="text" placeholder="Search for pictures...">
+            <a id="searchGlass" href="#"><i class="uk-link fas fa-magnifying-glass fa-icon"></i></a>
+        </div>
+      
+    </div>
+    <!-- Sections -->
+    <div  class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+        <ul id="slideshow" class="uk-slideshow-items">
+
+        </ul>
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bottom-nav" id="main-footer">
+  </footer>
+  <script type="module" src="/js/searchnasa.js" defer></script>
+</body>
+</html>
